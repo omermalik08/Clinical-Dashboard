@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Solutions Medical Providers | Clinical Command</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Primary">
+        <div class="brand-block">
+          <div class="brand-mark" aria-hidden="true">
+            <span class="leaf left"></span>
+            <span class="shield">+</span>
+            <span class="leaf right"></span>
+          </div>
+          <div>
+            <strong>Solutions</strong>
+            <span>clinical command</span>
+          </div>
+        </div>
+
+        <nav class="nav-list" aria-label="Dashboard sections">
+          <a class="active" href="#command">Command Center</a>
+          <a href="#facilities">Facilities</a>
+          <a href="#regional-rns">Regional RNs</a>
+          <a href="#audits">Audit Readiness</a>
+          <a href="#mds">MDS Watch</a>
+          <a href="#actions">Action Queue</a>
+        </nav>
+
+        <div class="sidebar-summary">
+          <span class="summary-label">Portfolio</span>
+          <strong>10 SNFs</strong>
+          <span>5 regional RNs</span>
+          <span>Live sample feed</span>
+        </div>
+      </aside>
+
+      <main class="main-content" id="command">
+        <header class="topbar">
+          <div class="title-stack">
+            <p class="eyebrow">Solutions Medical Providers</p>
+            <h1>Chief Clinical Officer Dashboard</h1>
+            <p class="subline">Clinical, compliance, DON, and MDS oversight across the skilled nursing portfolio.</p>
+          </div>
+          <div class="top-actions">
+            <div class="live-chip" aria-live="polite">
+              <span class="pulse-dot" aria-hidden="true"></span>
+              <span id="lastUpdated">Refreshing</span>
+            </div>
+            <button class="button secondary" id="refreshBtn" type="button">Refresh</button>
+            <button class="button primary" id="briefBtn" type="button">Executive Brief</button>
+          </div>
+        </header>
+
+        <section class="controls-band" aria-label="Filters">
+          <label>
+            Region
+            <select id="regionFilter">
+              <option value="all">All regions</option>
+            </select>
+          </label>
+          <label>
+            Regional RN
+            <select id="rnFilter">
+              <option value="all">All RNs</option>
+            </select>
+          </label>
+          <label>
+            Facility search
+            <input id="searchFilter" type="search" placeholder="Search facility, DON, or MDS">
+          </label>
+          <div class="segmented" role="group" aria-label="Time window">
+            <button type="button" class="active" data-window="24h">24h</button>
+            <button type="button" data-window="7d">7d</button>
+            <button type="button" data-window="30d">30d</button>
+          </div>
+          <label class="toggle-row">
+            <input id="priorityOnly" type="checkbox">
+            Priority only
+          </label>
+        </section>
+
+        <section class="metrics-grid" id="kpiGrid" aria-label="Portfolio indicators"></section>
+
+        <section class="command-layout" id="facilities">
+          <div class="portfolio-area">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Portfolio risk</p>
+                <h2>Facility surveillance</h2>
+              </div>
+              <span class="source-pill">PCC + MDS + PBJ + audit feed</span>
+            </div>
+            <div class="trend-wrap">
+              <div id="riskTrend" class="trend-chart" aria-label="Risk trend chart"></div>
+              <div class="trend-notes">
+                <strong id="trendHeadline">Risk trend</strong>
+                <span id="trendCopy">Watching active signals.</span>
+              </div>
+            </div>
+            <div class="facility-grid" id="facilityGrid"></div>
+          </div>
+
+          <aside class="priority-feed" aria-label="Clinical signals">
+            <div class="section-heading compact">
+              <div>
+                <p class="eyebrow">Today</p>
+                <h2>Clinical signals</h2>
+              </div>
+              <span class="signal-count" id="signalCount">0</span>
+            </div>
+            <div class="alert-list" id="alertList"></div>
+          </aside>
+        </section>
+
+        <section class="facility-table-section" aria-label="Facility detail table">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Exceptions</p>
+              <h2>Facility operating view</h2>
+            </div>
+            <button class="button secondary" id="printBtn" type="button">Print View</button>
+          </div>
+          <div class="table-shell">
+            <table>
+              <thead>
+                <tr>
+                  <th>Facility</th>
+                  <th>RN</th>
+                  <th>Clinical risk</th>
+                  <th>DON audit</th>
+                  <th>MDS status</th>
+                  <th>Survey readiness</th>
+                  <th>Open actions</th>
+                </tr>
+              </thead>
+              <tbody id="facilityRows"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="two-column-section" id="regional-rns">
+          <div>
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Accountability</p>
+                <h2>Regional RN coverage</h2>
+              </div>
+            </div>
+            <div class="rn-grid" id="rnGrid"></div>
+          </div>
+
+          <div id="mds" class="mds-panel">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">MDS</p>
+                <h2>Assessment watch</h2>
+              </div>
+              <span class="source-pill">OBRA + PPS + QRP</span>
+            </div>
+            <div class="mds-summary" id="mdsSummary"></div>
+            <div class="mds-worklist" id="mdsWorklist"></div>
+          </div>
+        </section>
+
+        <section class="audit-section" id="audits">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Compliance</p>
+              <h2>Survey readiness heatmap</h2>
+            </div>
+            <span class="source-pill">RN audit rounds</span>
+          </div>
+          <div class="heatmap-wrap" id="heatmapWrap"></div>
+        </section>
+
+        <section class="action-section" id="actions">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Follow through</p>
+              <h2>Open clinical action queue</h2>
+            </div>
+            <button class="button primary" id="huddleBtn" type="button">RN Huddle</button>
+          </div>
+          <div class="action-grid" id="actionGrid"></div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="facilityDialog" class="detail-dialog">
+      <form method="dialog">
+        <button class="close-button" value="close" aria-label="Close details">x</button>
+      </form>
+      <div id="facilityDetail"></div>
+    </dialog>
+
+    <dialog id="briefDialog" class="detail-dialog brief-dialog">
+      <form method="dialog">
+        <button class="close-button" value="close" aria-label="Close brief">x</button>
+      </form>
+      <div id="briefContent"></div>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>
