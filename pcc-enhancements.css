@@ -1,0 +1,289 @@
+.change-section,
+.score-section,
+.quadrant-section {
+  margin-top: 24px;
+}
+
+.change-grid,
+.score-card-grid,
+.quadrant-grid,
+.breakdown-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.change-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.score-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 18px;
+}
+
+.score-card-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.change-card,
+.score-card,
+.role-focus,
+.quadrant-card,
+.breakdown-panel,
+.breakdown-item {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 22px rgba(31, 46, 38, 0.05);
+}
+
+.change-card,
+.score-card,
+.role-focus,
+.quadrant-card,
+.breakdown-panel {
+  padding: 16px;
+}
+
+.change-top,
+.breakdown-head,
+.timeline-title,
+.quadrant-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.change-card h3,
+.score-card h3,
+.role-focus h3,
+.quadrant-card h3 {
+  margin: 10px 0 6px;
+  font-size: 16px;
+}
+
+.change-card p,
+.score-card p,
+.role-focus p,
+.quadrant-card p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.source-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  color: #23677a;
+  background: #e7f2f4;
+  border: 1px solid #c8e0e6;
+  white-space: nowrap;
+}
+
+.source-tag.mds {
+  color: #6b5b00;
+  background: #fbf3c6;
+  border-color: #eadf95;
+}
+
+.source-tag.audit {
+  color: #7a4a22;
+  background: #f6e7d8;
+  border-color: #e9c9a8;
+}
+
+.source-tag.judgment {
+  color: #70455c;
+  background: #f3dfeb;
+  border-color: #dfbfd2;
+}
+
+.source-tag.composite {
+  color: #27624f;
+  background: #e4f3ed;
+  border-color: #bfdfd1;
+}
+
+.role-list {
+  display: grid;
+  gap: 9px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.role-list li {
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.quadrant-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.quadrant-card {
+  min-height: 220px;
+}
+
+.quadrant-card.urgent {
+  border-top: 4px solid var(--coral);
+}
+
+.quadrant-card.stabilize {
+  border-top: 4px solid var(--amber);
+}
+
+.quadrant-card.prep {
+  border-top: 4px solid var(--teal);
+}
+
+.quadrant-card.maintain {
+  border-top: 4px solid var(--green-700);
+}
+
+.quadrant-head span {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--faint);
+  font-weight: 800;
+}
+
+.quadrant-list {
+  display: grid;
+  gap: 8px;
+}
+
+.quadrant-pill,
+.timeline-item {
+  display: grid;
+  width: 100%;
+  text-align: left;
+  background: var(--faint);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px;
+  color: var(--ink);
+}
+
+.quadrant-pill span,
+.timeline-item small {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.timeline-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.timeline-title {
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.timeline-item {
+  grid-template-columns: 82px 1fr;
+  column-gap: 10px;
+}
+
+.timeline-item small {
+  grid-column: 2;
+}
+
+.timeline-day {
+  font-weight: 800;
+  color: var(--teal);
+}
+
+.breakdown-panel {
+  margin-top: 18px;
+}
+
+.breakdown-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.breakdown-item {
+  padding: 12px;
+  box-shadow: none;
+}
+
+.breakdown-head {
+  margin-bottom: 10px;
+}
+
+.heatmap .heat-row {
+  grid-template-columns: 190px repeat(6, minmax(112px, 1fr));
+}
+
+.heat-score {
+  display: grid;
+  gap: 3px;
+  min-height: 58px;
+  align-content: center;
+}
+
+.heat-score strong {
+  font-size: 14px;
+}
+
+.heat-score span {
+  font-size: 10px;
+  line-height: 1.2;
+  color: inherit;
+  opacity: 0.85;
+}
+
+.role-segmented {
+  grid-template-columns: repeat(4, minmax(52px, 1fr));
+  min-width: 260px;
+}
+
+@media (max-width: 1320px) {
+  .score-card-grid,
+  .quadrant-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1040px) {
+  .score-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .change-grid,
+  .score-card-grid,
+  .quadrant-grid,
+  .breakdown-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .role-segmented {
+    min-width: 0;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-item small {
+    grid-column: 1;
+  }
+}
