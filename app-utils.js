@@ -182,7 +182,7 @@ function renderTrend(facilitySet) {
   const first = values[0];
   const direction = last > first ? "up" : last < first ? "down" : "flat";
   const copy = {
-    "24h": "Same-day signal blend from incidents, audits, staffing, and MDS exceptions.",
+    "24h": "Same-day signal blend from incidents, audits, and MDS exceptions.",
     "7d": "Weekly view highlights facilities trending away from survey readiness.",
     "30d": "Monthly view helps separate noise from sustained operating risk."
   };
