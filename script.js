@@ -1,5 +1,5 @@
 (function loadDashboardScripts() {
-  const scripts = ["data.js", "app-utils.js", "app-render.js", "app-detail.js", "pcc-enhancements.js"];
+  const scripts = ["data.js", "app-utils.js", "app-render.js", "app-detail.js", "pcc-enhancements.js", "clinical-feeds.js"];
 
   function loadScript(src) {
     return new Promise((resolve, reject) => {
