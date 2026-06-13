@@ -1,0 +1,223 @@
+.emr-tabs {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  overflow-x: auto;
+  padding: 8px;
+  margin: 16px 0 18px;
+  background: #eef5f2;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.emr-tab {
+  flex: 0 0 auto;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 8px 12px;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.emr-tab.active {
+  color: var(--green-900);
+  background: var(--white);
+  border-color: var(--line);
+  box-shadow: 0 4px 14px rgba(31, 46, 38, 0.06);
+}
+
+.segmented.role-segmented {
+  grid-template-columns: repeat(4, minmax(52px, 1fr));
+  width: 260px;
+}
+
+.clinical-feeds-section {
+  margin-top: 24px;
+}
+
+.feed-status-grid,
+.feed-workbench {
+  display: grid;
+  gap: 14px;
+}
+
+.feed-status-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.feed-workbench {
+  grid-template-columns: 300px minmax(0, 1fr);
+  margin-top: 14px;
+}
+
+.feed-card,
+.feed-summary-panel,
+.feed-table-panel {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 22px rgba(31, 46, 38, 0.05);
+}
+
+.feed-card,
+.feed-summary-panel,
+.feed-table-panel {
+  padding: 16px;
+}
+
+.feed-card-top,
+.feed-count-row,
+.feed-table-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+}
+
+.feed-card h3,
+.feed-summary-panel h3 {
+  margin: 10px 0 6px;
+  font-size: 16px;
+}
+
+.feed-card p,
+.feed-summary-panel p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.feed-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid #c8e0e6;
+  color: #23677a;
+  background: #e7f2f4;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.feed-badge.pharmacy {
+  color: #6b4d18;
+  background: #f6ead6;
+  border-color: #e4c796;
+}
+
+.feed-badge.therapy {
+  color: #265d4c;
+  background: #e2f2eb;
+  border-color: #bfdfd1;
+}
+
+.feed-badge.lab {
+  color: #245f73;
+  background: #e2f1f5;
+  border-color: #bfdae3;
+}
+
+.feed-badge.radiology {
+  color: #6f455d;
+  background: #f4e2ec;
+  border-color: #dfbfd2;
+}
+
+.feed-count {
+  font-size: 30px;
+  line-height: 1;
+  font-weight: 900;
+  color: var(--ink);
+}
+
+.feed-summary-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.feed-count-row {
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.feed-count-row strong {
+  font-size: 18px;
+}
+
+.feed-table-wrap {
+  overflow-x: auto;
+}
+
+.feed-table {
+  width: 100%;
+  min-width: 840px;
+  border-collapse: collapse;
+}
+
+.feed-table th,
+.feed-table td {
+  padding: 11px 10px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+  font-size: 12px;
+}
+
+.feed-table th {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0;
+  font-weight: 900;
+  background: var(--faint);
+}
+
+.feed-table td strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.feed-action {
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.feed-age {
+  font-weight: 900;
+  color: var(--teal);
+}
+
+.feed-age.danger {
+  color: var(--coral);
+}
+
+.feed-age.warn {
+  color: var(--amber);
+}
+
+@media (max-width: 1220px) {
+  .feed-status-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .feed-workbench {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .feed-status-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feed-table-panel {
+    padding: 12px;
+  }
+}
